@@ -16,6 +16,8 @@ use Monolog\Handler\StreamHandler;
 |
 */
 
+
+//criando arquivo log....
 Route::get('/', function () {
 
   $logger = new Logger('my_logger');
@@ -48,23 +50,25 @@ Route::get('/ola/{nome?}', function ($nome = null){
     return "Boa tarde $nome";
 });
 
-///rota da página filmes ---
-
-Route::get('/filme', function(){
-    $listaFilmes = [
-        ["filme" => "Titanic", "Avaliação" => 9.5, "Lançamento" => "1998"],
-        ["filme" => "Feitiço do Tempo", "Avaliação" => 10, "Lançamento" => "1993"],
-        ["filme" => "De Volta para o Futuro", "Avaliação" => 9, "Lançamento" => "1985"],
-        ["filme" => "A múmia (aquele com o Tom Cruise)", "Avaliação" => 4.5, "Lançamento" => "2017"]
-    ];
-    return view('filme', ["listaFilmes" => $listaFilmes]);
-});
-
-Route::get('/detalhes-filmes/{nome?}', function ($nome = null){
-    return view('detalhes-filmes', ['filme' => $nome]);
-});
-
 Route::get('/user-page/{nome?}/{sobrenome?}', function ($nome = null, $sobrenome = null){
     $vac = compact('nome', 'sobrenome');
     return view('user-page', $vac);
 });
+
+///rota da página filmes....
+Route::get('/filmes', 'FilmeController@listarFilmes');
+
+//rota detalhes dos filmes... com parametro
+Route::get('/detalhes-filmes/{id}', 'filmeController@detalheFilme');
+
+// Route::get('/detalhes-filmes/{nome?}', function ($nome = null){
+//     return view('detalhes-filmes', ['filme' => $nome]);
+// });
+
+//mesma rota com métodos diferentes para salvar os dados enviados:
+Route::get('/cadastrarFilme', 'FilmeController@cadastrarFilme');
+Route::post('/cadastrarFilme', 'FilmeController@cadastrarFilme');
+//ou route::post('salvarFilme', 'FilmeController@cadastrarFilme');
+
+//deletando o filme do banco....
+Route::get('/deletarFilme/{id}', 'FilmeController@deletarFilme');
