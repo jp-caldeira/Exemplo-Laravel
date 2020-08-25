@@ -6,5 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class actors extends Model
 {
-      public $guarded = [];  
+      public $primaryKey = "id";
+      public $timestamps = false;
+      public $guarded = [];
 }

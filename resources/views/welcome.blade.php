@@ -80,12 +80,23 @@
             @endif
 
             <div class="content">
+
+
                 <div class="title m-b-md">
-                    Laravel
+                    Projetinho
+                </div>
+
+                <div class="links">
+                    <a href="/ola">Olá</a>
+                    <a href="/filmes">Filmes</a>
+                    <a href="/cadastrarFilme">Cadastrar Filme</a>
+                    <a href="/atores">Atores</a>
+                    <a href="/atores-nota-dez">Atores nota 10</a>
+                    <a href="/cadastro-ator">Cadastrar Ator</a>
                 </div>
 
                 <div class="title m-b-md">
-                    
+                    Laravel
                 </div>
 
                 <div class="links">

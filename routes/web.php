@@ -65,10 +65,25 @@ Route::get('/detalhes-filmes/{id}', 'filmeController@detalheFilme');
 //     return view('detalhes-filmes', ['filme' => $nome]);
 // });
 
-//mesma rota com métodos diferentes para salvar os dados enviados:
+//mesma rota, métodos diferentes: uma exibe o formulário, a outra salva os dados enviados
 Route::get('/cadastrarFilme', 'FilmeController@cadastrarFilme');
 Route::post('/cadastrarFilme', 'FilmeController@cadastrarFilme');
 //ou route::post('salvarFilme', 'FilmeController@cadastrarFilme');
 
 //deletando o filme do banco....
 Route::get('/deletarFilme/{id}', 'FilmeController@deletarFilme');
+
+
+Route::get('/atores', 'AtorController@listarAtores');
+
+Route::get('/detalhes-ator/{id}', 'AtorController@detalheAtor');
+
+Route::get('/atores-nota-dez', 'AtorController@listaBonsAtores');
+
+//rota cadastro ator
+Route::get('/cadastro-ator', 'AtorController@cadastroAtor');
+Route::post('/cadastro-ator', 'AtorController@cadastroAtor');
+
+//rota de upload dos arquivos
+Route::get('/upload', 'uploadController@enviarArquivo');
+Route::post('/upload', 'uploadController@enviarArquivo');
