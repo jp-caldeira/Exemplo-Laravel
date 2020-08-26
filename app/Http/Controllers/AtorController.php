@@ -14,7 +14,8 @@ class AtorController extends Controller
 
     public function detalheAtor($id){
       $ator = actors::find($id);
-      return view('detalhes-ator', ["ator" => $ator]);
+      $filmes = $ator->filmes;      
+      return view('detalhes-ator', ["ator" => $ator, "filmes" => $filmes]);
     }
 
     public function listaBonsAtores(){
@@ -35,8 +36,6 @@ class AtorController extends Controller
         $novoator->save();
 
         return redirect('/cadastro-ator');//repare que aqui você teve que colocar a rota, e não a view(porque dá errado)
-
-
     }
 
 

@@ -14,6 +14,11 @@
         <li class="list-group-item">Nome: {{$ator->first_name}}</li>
         <li class="list-group-item">Sobrenome: {{$ator->last_name}}</li>
         <li class="list-group-item">Nota: {{$ator->rating}}</li>
+
+        Filmes:
+        @foreach($filmes as $filme)
+        <li class="list-group-item">{{$filme["title"]}}</li>
+        @endforeach
       </ul>
 
     </div>

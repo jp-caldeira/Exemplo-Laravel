@@ -87,3 +87,6 @@ Route::post('/cadastro-ator', 'AtorController@cadastroAtor');
 //rota de upload dos arquivos
 Route::get('/upload', 'uploadController@enviarArquivo');
 Route::post('/upload', 'uploadController@enviarArquivo');
+
+//generos
+Route::get('/generos', 'GenreController@listGenres');

@@ -12,6 +12,11 @@
     <ul>
       <li>Rating: {{ $filme->rating }}</li>
       <li>Prêmios: {{ $filme->awards }}</li>
+      Atores:
+      @foreach($atores as $ator)
+      <li>{{$ator['first_name']}} {{$ator->last_name}}</li>
+      {{-- aparentemente dá para tratar tanto como um array como objeto --}}
+    @endforeach
     </ul>
     </div>
   </body>

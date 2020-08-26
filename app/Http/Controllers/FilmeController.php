@@ -7,13 +7,23 @@ use App\FilmeModel;
 class FilmeController extends Controller
 {
     public function listarFilmes(){
-        $filmes = FilmeModel::paginate(5);
-        return view('filme',["filmes"=>$filmes]);
+        $filmes = FilmeModel::all();
+
+        $maior = $filmes->filter(function($value,$key){
+          return $value->length < 60;
+        });
+
+        $mediaFilmes = $filmes->avg('length');
+        $grupoA = $filmes->groupBy('genre_id');      
+
+
+        return view('filme',["filmes"=>$filmes, "grupoA" => $grupoA]);
         }
 
     public function detalheFilme($id){
       $filme = FilmeModel::find($id);
-      return view('detalhes-filmes', ["filme" => $filme]);
+      $atores = $filme->actors;
+      return view('detalhes-filmes', ["filme" => $filme, "atores" => $atores]);
     }
 
     public function cadastrarFilme(Request $request){
