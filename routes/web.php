@@ -90,3 +90,7 @@ Route::post('/upload', 'uploadController@enviarArquivo');
 
 //generos
 Route::get('/generos', 'GenreController@listGenres');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
