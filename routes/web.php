@@ -50,11 +50,6 @@ Route::get('/ola/{nome?}', function ($nome = null){
     return "Boa tarde $nome";
 });
 
-Route::get('/user-page/{nome?}/{sobrenome?}', function ($nome = null, $sobrenome = null){
-    $vac = compact('nome', 'sobrenome');
-    return view('user-page', $vac);
-});
-
 ///rota da página filmes....
 Route::get('/filmes', 'FilmeController@listarFilmes');
 
@@ -94,3 +89,8 @@ Route::get('/generos', 'GenreController@listGenres');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/user-page/{nome?}/{sobrenome?}', function ($nome = null, $sobrenome = null){
+    $vac = compact('nome', 'sobrenome');
+    return view('user-page', $vac);
+})->middleware('checkAdmin');
