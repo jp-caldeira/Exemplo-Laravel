@@ -17,3 +17,18 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+//retorna todos os usuários
+Route::get('/usuarios',  'api\UsuarioController@exibirTodos');
+
+//retorna um único usuário
+Route::get('/usuarios/{id}', 'api\UsuarioController@exibirUsuario');
+
+//cadastrar um usuário
+Route::post('/usuarios', 'api\UsuarioController@criarUsuario');
+
+//novo método! mais específico! put! para atualizar informações
+Route::put('/usuarios/{id}', 'api\UsuarioController@atualizarUsuario');
+
+//Deletar um usuário: método específico para deletar
+Route::delete('/usuarios/{id}', 'api\UsuarioController@deletarUsuario');
