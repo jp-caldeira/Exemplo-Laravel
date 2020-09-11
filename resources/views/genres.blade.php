@@ -12,14 +12,20 @@
         <table class="table table-light">
           <thead>
             <tr>
-              <th scope="col">ID</th>
               <th scope="col">Gênero</th>
+              <th scope="col">Detalhes</th>
+              <th scope="col">Filmes</th>
             </tr>
             <tbody>
         @foreach($generos as $genero)
           <tr>
-          <th scope="row">{{$genero->id}}</th>
           <td>{{$genero->name}}</td>
+          <td><a href="/detalhe-genero/{{$genero->id}}">Exibir</a></td>
+          <td>
+          @foreach ($genero->filmes as $filme)
+            <li>{{$filme->title}}</li>
+          @endforeach
+          </td>
         </tr>
       @endforeach
           </tbody>

@@ -12,4 +12,13 @@ class GenreController extends Controller
       return view('genres', ["generos" => $genres]);
 
     }
+
+    public function detalheGenero($id)
+    {
+      $genre = genres::find($id);
+      $filmes = $genre->filmes;
+      //dd($filmes);
+
+      return view('detalhe-genero', ["genero" => $genre], ["filmes" => $filmes]);
+    }
 }

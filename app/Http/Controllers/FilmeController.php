@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\FilmeModel;
+use App\genres;
 
 class FilmeController extends Controller
 {
@@ -14,7 +15,7 @@ class FilmeController extends Controller
         });
 
         $mediaFilmes = $filmes->avg('length');
-        $grupoA = $filmes->groupBy('genre_id');      
+        $grupoA = $filmes->groupBy('genre_id');
 
 
         return view('filme',["filmes"=>$filmes, "grupoA" => $grupoA]);
@@ -23,6 +24,7 @@ class FilmeController extends Controller
     public function detalheFilme($id){
       $filme = FilmeModel::find($id);
       $atores = $filme->actors;
+
       return view('detalhes-filmes', ["filme" => $filme, "atores" => $atores]);
     }
 

@@ -86,6 +86,9 @@ Route::post('/upload', 'uploadController@enviarArquivo');
 //generos
 Route::get('/generos', 'GenreController@listGenres');
 
+Route::get('/detalhe-genero/{id}', 'genreController@detalheGenero');
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -52,7 +52,7 @@ class UsuarioController extends Controller
 
       $usuario = User::find($id);
       $usuario->delete();
-      
+
       return response()->json(['Usuário DELETADO!']);
 
     }
