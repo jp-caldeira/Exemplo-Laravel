@@ -12,6 +12,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UserSeeder::class);
-        $this->call(criarDiretorSeeder::class);        
+        //$this->call(criarDiretorSeeder::class);
+
+        DB::table('diretores')->insert([
+          "nome"=>Str::random(20);          
+        ]);
     }
 }
