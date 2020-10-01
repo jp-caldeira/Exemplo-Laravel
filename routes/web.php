@@ -97,3 +97,9 @@ Route::get('/user-page/{nome?}/{sobrenome?}', function ($nome = null, $sobrenome
     $vac = compact('nome', 'sobrenome');
     return view('user-page', $vac);
 })->middleware('checkAdmin');
+
+
+Route::view('/page1', 'page2');
+    
+Route::view('/page2', 'page2');
+
